@@ -1,57 +1,27 @@
 package MAPC.TD2;
+import java.util.*;
 
-public abstract class Composite<T> implements Composant{
+public abstract class Composite<T extends Composant> implements Composant{
 
 	private String name;
+	private List<T> elements;
 	
-	
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Composant getContenu() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Owner getOwner() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getSize() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void appendContent() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setOwner(Owner o) {
-		
+	public Composite (String name, List<T> e) {
+		this.name = name;
+		this.elements = e;
 	}
 	
-	//************************************************
 	//Fonctions du composite
 	public void addChild() {
 		
 	}
 	
-	public Composant[] getChildren() {
-		return null;
+	public List<T> getChildren() {
+		return this.elements;
 	}
 	
-	public void removeChild() {
-		
+	public void removeChild(T child) {
+		this.elements.remove(child);
 	}
 	
 	public void removeChildren() {
